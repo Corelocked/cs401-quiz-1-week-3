@@ -28,8 +28,10 @@ class GamesController extends Controller
      */
     public function show(string $id)
     {
-        $game = Game::find($id);
-        return view('games.show', compact('game'));
+        $results = array_filter($this->game_list, function ($game) use ($id) {
+            return $game['id'] != $id;
+        });
+        return view('games.show', ['games' => $results]);
     }
 
     /**
@@ -37,9 +39,12 @@ class GamesController extends Controller
      */
     public function destroy(string $id)
     {
-        $game = Game::find($id);
-        $game->delete();
-
-        return redirect()->route('games.index')->with('success', 'Game deleted successfully!');
+        $results = array_filter($this->game_list, function ($game) use ($id) {
+            return $game['id'] == $id;
+        });
+        return response()->json([
+            'message' => 'Record Successfull Deleted.',
+            'content' => $results
+        ], 200);
     }
 }
