@@ -13,6 +13,6 @@ Route::get('/get-csrf-token', function () {
 Route::get('/games', [GamesController::class, 'index'])->name('games.index');
 // make the routes for the rest of the actions
 
-Route::get('/games/{id}', [GameController::class, 'show'])->name('games.show');
+Route::get('/games/{id}', [GamesController::class, 'show'])->name('games.show');
 
-Route::delete('/games/{id}', [GameController::class, 'destroy'])->name('games.destroy');
+Route::delete('/games/{id}', [GamesController::class, 'destroy'])->name('games.destroy');

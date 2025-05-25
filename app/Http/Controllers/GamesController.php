@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Game;
 use GMP;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,7 @@ class GamesController extends Controller
      */
     public function index() {
 
-        $games = GamesController::all();
+        $games = Game::all();
         return view('games.list', compact('games'));
 
     }
