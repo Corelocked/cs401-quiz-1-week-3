@@ -16,11 +16,17 @@ class GamesController extends Controller
     /**
      * Display a listing of the resource.
      */
+<<<<<<< HEAD
     public function index() {
 
         $games = Game::all();
         return view('games.list', compact('games'));
 
+=======
+    public function index()
+    {
+        //Step 3. Your code here
+>>>>>>> efb04b6a6ee88935cdfb8ca2956fef2fbc984f1b
     }
 
     /**
@@ -28,6 +34,7 @@ class GamesController extends Controller
      */
     public function show(string $id)
     {
+        //Step 4.
         $results = array_filter($this->game_list, function ($game) use ($id) {
             return $game['id'] != $id;
         });
