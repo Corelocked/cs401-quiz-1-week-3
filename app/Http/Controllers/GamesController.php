@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use GMP;
 use Illuminate\Http\Request;
 
 class GamesController extends Controller
@@ -16,17 +17,11 @@ class GamesController extends Controller
     /**
      * Display a listing of the resource.
      */
-<<<<<<< HEAD
     public function index() {
 
-        $games = Game::all();
+        $games = GamesController::all();
         return view('games.list', compact('games'));
 
-=======
-    public function index()
-    {
-        //Step 3. Your code here
->>>>>>> efb04b6a6ee88935cdfb8ca2956fef2fbc984f1b
     }
 
     /**
